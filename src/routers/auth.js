@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { ctrlWrapper } from '../utils/ctrlWrapper.js';
+
 import {
   loginUserSchema,
   registerUserSchema,
@@ -25,14 +25,10 @@ router.post(
   '/register',
 
   validateBody(registerUserSchema),
-  ctrlWrapper(registerUserController),
+  registerUserController,
 );
 
-router.post(
-  '/login',
-  validateBody(loginUserSchema),
-  ctrlWrapper(loginUserController),
-);
+router.post('/login', validateBody(loginUserSchema), loginUserController);
 
 router.post('/logout', logoutUserController);
 
@@ -41,21 +37,21 @@ router.post('/refresh', refreshSessionController);
 router.post(
   '/send-reset-email',
   validateBody(requestResetPasswordSchema),
-  ctrlWrapper(requestResetPasswordController),
+  requestResetPasswordController,
 );
 
 router.post(
   '/reset-pwd',
   validateBody(resetPasswordSchema),
-  ctrlWrapper(resetPasswordController),
+  resetPasswordController,
 );
 
-router.get('/get-oauth-url', ctrlWrapper(getOAuthUrlController));
+router.get('/get-oauth-url', getOAuthUrlController);
 
 router.post(
   '/confirm-oauth',
   validateBody(confirmOAuthSchema),
-  ctrlWrapper(confirmOAuthController),
+  confirmOAuthController,
 );
 
 export default router;
