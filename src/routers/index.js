@@ -1,11 +1,11 @@
 import { Router } from 'express';
-import contactsRouter from './contacts.js';
 import authRouter from './auth.js';
+import storiesRouter from './stories.js';
 import { authenticate } from '../middlewares/auth.js';
 
 const router = Router();
 
-router.use('/contacts', authenticate, contactsRouter);
 router.use('/auth', authRouter);
+router.use('/stories', authenticate, storiesRouter);
 
 export default router;

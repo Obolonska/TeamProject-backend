@@ -1,23 +1,23 @@
 import Joi from 'joi';
 
-export const registerUserSchema = Joi.object({
-  name: Joi.string().min(3).max(30).required(),
-  email: Joi.string().email().trim().lowercase().required(),
-  password: Joi.string().required(),
+export const registerSchema = Joi.object({
+  name: Joi.string().min(3).max(32).required(),
+  email: Joi.string().email().max(64).trim().lowercase().required(),
+  password: Joi.string().min(8).max(128).required(),
 });
 
-export const loginUserSchema = Joi.object({
-  email: Joi.string().email().trim().lowercase().required(),
-  password: Joi.string().required(),
+export const loginSchema = Joi.object({
+  email: Joi.string().email().max(64).trim().lowercase().required(),
+  password: Joi.string().min(8).max(128).required(),
 });
 
 export const requestResetPasswordSchema = Joi.object({
-  email: Joi.string().email().trim().lowercase().required(),
+  email: Joi.string().email().max(64).trim().lowercase().required(),
 });
 
 export const resetPasswordSchema = Joi.object({
   token: Joi.string().required(),
-  newPassword: Joi.string().min(6).required(),
+  password: Joi.string().min(8).max(128).required(),
 });
 
 export const confirmOAuthSchema = Joi.object({

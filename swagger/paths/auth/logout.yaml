@@ -1,13 +1,13 @@
 tags:
   - Auth
-summary: User logout
-operationId: logoutUser
-description: Logout the current user
+summary: Traveler logout
+operationId: logoutTraveler
+description: Logout the current traveler
 security:
   - bearerAuth: []
 responses:
   '200':
-    description: User logged out successfully
+    description: Traveler logged out successfully
   '401':
     $ref: ../../components/responses/401.yaml
   '500':

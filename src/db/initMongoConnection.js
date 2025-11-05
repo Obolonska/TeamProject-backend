@@ -2,7 +2,6 @@
 import mongoose from 'mongoose';
 import { getEnvVar } from '../utils/getEnvVar.js';
 
-// const URL = `mongodb+srv://obolonska:bg6ZPtmOK5w3qEfy@cluster0.0rcxl7b.mongodb.net/Contacts?retryWrites=true&w=majority&appName=Cluster0`;
 export const initMongoDB = async () => {
   try {
     const user = getEnvVar('MONGODB_USER');

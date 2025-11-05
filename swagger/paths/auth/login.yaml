@@ -1,8 +1,8 @@
 tags:
   - Auth
-summary: User login
-operationId: loginUser
-description: Login an existing user
+summary: Traveler login
+operationId: loginTraveler
+description: Login an existing traveler
 security:
   - bearerAuth: []
 requestBody:
@@ -18,15 +18,15 @@ requestBody:
           email:
             type: string
             format: email
-            description: Email address of the user
+            description: Email address of the traveler
             example: john.doe@example.com
           password:
             type: string
-            description: Password for the user
+            description: Password for the traveler
             example: password123
 responses:
   '200':
-    description: User logged in successfully
+    description: Traveler logged in successfully
     content:
       application/json:
         schema:
@@ -41,7 +41,7 @@ responses:
               example: 200
             message:
               type: string
-              example: User logged in successfully
+              example: Traveler logged in successfully
             data:
               type: object
               properties:

@@ -1,8 +1,8 @@
 tags:
   - Auth
-summary: Register a new user
-operationId: registerUser
-description: Register a new user
+summary: Register a new traveler
+operationId: registerTraveler
+description: Register a new traveler
 security: []
 requestBody:
   required: true
@@ -17,20 +17,20 @@ requestBody:
         properties:
           name:
             type: string
-            description: Username of the new user
+            description: Username of the new traveler
             example: John Doe
           email:
             type: string
             format: email
-            description: Email address of the new user
+            description: Email address of the new traveler
             example: john.doe@example.com
           password:
             type: string
-            description: Password for the new user
+            description: Password for the new traveler
             example: password123
 responses:
   '201':
-    description: User registered successfully
+    description: Traveler registered successfully
     content:
       application/json:
         schema:
@@ -45,7 +45,7 @@ responses:
               example: 201
             message:
               type: string
-              example: User registered successfully
+              example: Traveler registered successfully
             data:
               type: object
               properties:

@@ -3,8 +3,9 @@ function parseSortBy(value) {
     return '_id';
   }
 
-  const keys = ['_id', 'name', 'isFavourite', 'contactType'];
-
+  const keys = [
+    //'_id', 'name', 'isFavourite', 'contactType'//
+  ];
   if (keys.includes(value) === false) {
     return '_id';
   }
